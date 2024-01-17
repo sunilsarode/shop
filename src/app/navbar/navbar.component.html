@@ -1,0 +1,20 @@
+<mat-toolbar class="toolbar">
+  <span class="app" (click)="navigateTo('/')">O</span>
+
+  <div class="toolbar-menu">
+    <button mat-button [matMenuTriggerFor]="menu" >Username</button>
+    <mat-menu #menu="matMenu" yPosition="below" xPosition="after" >
+      <button mat-menu-item (click)="navigateTo('/my-orders')">My Orders</button>
+      <button mat-menu-item (click)="navigateTo('/manage-orders')">Manage Orders</button>
+      <button mat-menu-item (click)="navigateTo('/manage-products')">Manage Products</button>
+      <button mat-menu-item >Logout</button>
+    </mat-menu>
+  
+    <button mat-icon-button  aria-label="Example icon-button with share icon" (click)="navigateTo('/shopping-cart')">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </div>
+ 
+
+
+</mat-toolbar>

@@ -1,0 +1,13 @@
+.toolbar{
+    display: flex;
+   
+    justify-content: space-between;
+}
+.toolbar-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app{
+    cursor: pointer;
+}
