@@ -101,6 +101,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "oshop:build:production",
+              "serveTarget": "oshop:serve:production"
+            },
+            "development": {
+              "buildTarget": "oshop:build:development",
+              "serveTarget": "oshop:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

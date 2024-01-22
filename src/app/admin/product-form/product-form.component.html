@@ -1,0 +1,59 @@
+<div class="product">
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title">
+    <div *ngIf="myForm.get('title')?.hasError('required') && myForm.get('title')?.touched" class="error">
+      Title is required
+    </div>
+  
+    <label for="price">Price $:</label>
+    <input type="text" id="price" formControlName="price">
+    <div *ngIf="myForm.get('price')?.hasError('required') && myForm.get('price')?.touched" class="error">
+      Price is required
+    </div>
+    <div *ngIf="myForm.get('price')?.hasError('pattern') && myForm.get('price')?.touched" class="error">
+      Invalid price format
+    </div>
+    <div *ngIf="myForm.get('price')?.hasError('min') && myForm.get('price')?.touched" class="error">
+      Price must be greater than zero
+    </div>
+  
+    <label for="imageUrl">image URL:</label>
+    <input type="text" id="imageUrl" formControlName="imageUrl">
+    <div *ngIf="myForm.get('imageUrl')?.hasError('required') && myForm.get('imageUrl')?.touched" class="error">
+      Image URL is required
+    </div>
+    <div *ngIf="myForm.get('imageUrl')?.hasError('pattern') && myForm.get('imageUrl')?.touched" class="error">
+      Invalid URL format
+    </div>
+  
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          @for (category of categories; track category) {
+            <mat-option [value]="category.name">{{category.name}}</mat-option>
+          }
+        </mat-select>
+    </mat-form-field>
+  
+   <div class="product-btn">
+    <button type="submit"  mat-flat-button color="primary" [disabled]="myForm.invalid">Submit</button>
+    <button type="button"  mat-flat-button color="warn" (click)="deleteItem()">Delete</button>
+   </div>
+    
+  </form>
+  <mat-card *ngIf="myForm.get('title')?.value" class="product-card">
+
+    <mat-card-content>
+      <p>
+       {{ myForm.get('title')?.value   }}
+      </p>
+      <p>
+        {{ myForm.get('price')?.value |  currency:'USD':'symbol':'1.2-2' }}
+      </p>
+      <img *ngIf="myForm.get('imageUrl')?.value" mat-card-image [src]="myForm.get('imageUrl')?.value" alt="product image" class="product-card--image">
+    </mat-card-content>
+
+  </mat-card>
+</div>

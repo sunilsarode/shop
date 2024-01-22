@@ -1,0 +1,42 @@
+.products {
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+}
+.category {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  padding: 1rem;
+  gap: 1rem;
+  cursor: pointer;
+}
+.sticky-category {
+    position: fixed;
+   
+    z-index: 1;
+    background-color: white;
+  }
+
+.product-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 1rem;
+ 
+  margin-left: 22%;
+}
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 60%;
+}
+.selected-card {
+  background-color: #3f51b5;
+  color: white; /* Optional: change text color for better visibility */
+}

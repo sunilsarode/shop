@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "shop-69b35"
+  },
+  "targets": {
+    "shop-69b35": {
+      "hosting": {
+        "oshop": [
+          "shop-69b35"
+        ]
+      }
+    }
   }
 }

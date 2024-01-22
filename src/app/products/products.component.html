@@ -1,1 +1,30 @@
-<p>products works!</p>
+<div class="products">
+  <div class="category sticky-category">
+    <mat-card (click)="onCardClick('all')" [ngClass]="{'selected-card': selectedCategory === null}" >
+      <mat-card-content>All Categories</mat-card-content>
+    </mat-card>
+    <mat-card
+      *ngFor="let category of categories$ | async"
+      (click)="onCardClick(category.name)"
+      [ngClass]="{ 'selected-card': selectedCategory === category.name }"
+    >
+      <mat-card-content> {{ category.name }}</mat-card-content>
+    </mat-card>
+  </div>
+  <div class="product-cards">
+    <mat-card *ngFor="let productItem of products" class="card">
+      <mat-card-content>
+        <h3>{{ productItem.title }}</h3>
+        <img
+          src="{{ productItem.imageUrl }}"
+          alt="{{ productItem.title }}"
+          class="product-image"
+        />
+        <p>
+          Price: {{ productItem.price | currency : "USD" : "symbol" : "1.2-2" }}
+        </p>
+        <button mat-flat-button color="primary">Add to Cart</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

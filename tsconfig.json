@@ -19,6 +19,7 @@
     "target": "ES2022",
     "typeRoots": [
       "node_modules/@types",
+      "AngularFireAuth",
       "node_modules/@angular/material",
     ],
     "module": "ES2022",
