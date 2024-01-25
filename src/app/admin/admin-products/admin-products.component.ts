@@ -89,7 +89,8 @@ export class AdminProductsComponent implements OnDestroy {
     this.router.navigate(['/add-new-products']);
   }
   editProduct(product: Product) {
-    this.router.navigate(['/manage-products', product.$key]);
+    if(product.key)
+    this.router.navigate(['/manage-products', product.key]);
   }
 
   applyFilter() {

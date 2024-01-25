@@ -20,7 +20,7 @@ export class ProductService {
       map((changes) => {
         return changes.map((c) => {
           const data = c.payload.val() as Product;
-          return { ...data, $key: c.payload.key } as Product;
+          return { ...data, key: c.payload.key } as Product;
         });
       })
     );

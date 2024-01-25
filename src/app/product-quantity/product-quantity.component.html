@@ -1,0 +1,5 @@
+<div class="add-remove">
+    <button mat-flat-button (click)="increaseQuant()">+</button>
+    <div>{{ shoppingCart?.getQuantity(product) }}</div>
+    <button mat-flat-button (click)="decreaseQuant()">-</button>
+  </div>

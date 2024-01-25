@@ -11,20 +11,10 @@
       <mat-card-content> {{ category.name }}</mat-card-content>
     </mat-card>
   </div>
+ 
   <div class="product-cards">
-    <mat-card *ngFor="let productItem of products" class="card">
-      <mat-card-content>
-        <h3>{{ productItem.title }}</h3>
-        <img
-          src="{{ productItem.imageUrl }}"
-          alt="{{ productItem.title }}"
-          class="product-image"
-        />
-        <p>
-          Price: {{ productItem.price | currency : "USD" : "symbol" : "1.2-2" }}
-        </p>
-        <button mat-flat-button color="primary">Add to Cart</button>
-      </mat-card-content>
-    </mat-card>
-  </div>
+   <ng-container  *ngFor="let productItem of products" >
+    <product-card [product]="productItem" [shoppingCart]="cart"></product-card>
+   </ng-container>
+  </div>  
 </div>

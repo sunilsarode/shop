@@ -1,0 +1,19 @@
+
+<mat-card class="card">
+    <mat-card-content class="card-content">
+      <h3>{{ product.title }}</h3>
+      <img
+        src="{{ product.imageUrl }}"
+        alt="{{ product.title }}"
+        class="product-image"
+      />
+      <p>
+        Price: {{ product.price | currency : "USD" : "symbol" : "1.2-2" }}
+      </p>
+      <button *ngIf="shoppingCart?.getQuantity(product) === 0;else addRemoveButtons" mat-flat-button (click)="addToCart()" class="addToCart">Add to Cart</button>
+      <ng-template #addRemoveButtons>
+       <product-quantity [product]="product" [shoppingCart]="shoppingCart"></product-quantity>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+
