@@ -1,8 +1,10 @@
 <div class="shopping-cart">
   <h1>Shpping Cart</h1>
-  <p>You have {{ totalItemsCount }} items in your cart</p>
-
-  <table class="table">
+  <div class="clear-cart">
+    <p>You have {{ totalItemsCount }} items in your cart</p>
+  <button *ngIf="cartItems.length" (click)="clearCart()" mat-raised-button color="basic">Clear Cart</button>
+  </div>
+  <table class="table" *ngIf="cartItems.length">
     <thead>
       <tr>
         <th></th>
@@ -32,5 +34,6 @@
       </tr>
     </tfoot>
   </table>
-  <button (click)="clearCart()" mat-raised-button color="warn">Clear Cart</button>
+  
+  <button *ngIf="cartItems.length" (click)="checkout()" mat-raised-button color="primary">Check Out</button>
 </div>

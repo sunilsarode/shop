@@ -1,0 +1,21 @@
+form{
+    
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    width: 30%;
+}
+
+.error{
+    color: red;
+}
+
+button{
+    width: 20%;
+    cursor: pointer;
+}
+.cart-summary-form{
+    display: flex;
+    margin: 2rem;
+    gap:1rem
+}

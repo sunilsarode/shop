@@ -1,5 +1,4 @@
 .shopping-cart {
-  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,16 +18,21 @@ td {
 
 th,
 td {
-  padding: 1rem;
+  padding: 8px;
 }
 
-p{
+p {
   font-size: large;
-  
 }
 
-.thumbnail{
+.thumbnail {
   width: 80px;
   height: 80px;
   border-radius: 100%;
+}
+
+.clear-cart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }

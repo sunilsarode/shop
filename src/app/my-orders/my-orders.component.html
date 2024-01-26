@@ -1,1 +1,21 @@
-<p>my-orders works!</p>
+<div class="my-order">
+    <table>
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Date</th>
+            <th>View order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of (orders$ | async); index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.datePlaced | date: 'medium'}}</td>
+            <td>
+              <button (click)="viewOrder(item)" mat-raised-button color="basic">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+  

@@ -28,6 +28,11 @@ export const routes: Routes = [
         canActivate:[AuthguardService]
     },
     {
+        path: 'order-success/:id',
+        loadComponent: () => import('./order-success/order-success.component').then(mod => mod.OrderSuccessComponent),
+        canActivate:[AuthguardService]
+    },
+    {
         path: 'manage-orders',
         loadComponent: () => import('./admin/admin-orders/admin-orders.component').then(mod => mod.AdminOrdersComponent),
         canActivate:[AuthguardService,AdminAuthGuardService]

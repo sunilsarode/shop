@@ -1,1 +1,39 @@
-<p>check-out works!</p>
+<div class="cart-summary-form">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" />
+    <div
+      *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched"
+      class="error"
+    >
+      Please enter a valid name.
+    </div>
+
+    <label for="addressLine1">Address Line 1:</label>
+    <input type="text" id="addressLine1" formControlName="addressLine1" />
+    <div
+      *ngIf="
+        myForm.get('addressLine1')?.invalid &&
+        myForm.get('addressLine1')?.touched
+      "
+      class="error"
+    >
+      Please enter a valid address.
+    </div>
+
+    <label for="addressLine2">Address Line 2:</label>
+    <input type="text" id="addressLine2" formControlName="addressLine2" />
+
+    <label for="city">City:</label>
+    <input type="text" id="city" formControlName="city" />
+    <div
+      *ngIf="myForm.get('city')?.invalid && myForm.get('city')?.touched"
+      class="error"
+    >
+      Please enter a valid city.
+    </div>
+
+    <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  </form>
+  <order-summary style="width: 30%" [cart]="cart"></order-summary>
+</div>

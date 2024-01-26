@@ -7,6 +7,7 @@ import { ShoppingCartItem } from '../models/shopping-cart-item';
 import { Product } from '../models/product';
 import { ProductQuantityComponent } from "../product-quantity/product-quantity.component";
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 
 
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     imports: [CommonModule, ProductQuantityComponent,MatButtonModule]
 })
 export class ShoppingCartComponent implements OnInit,OnDestroy {
+
   totalItemsCount: number=0; 
   subscription:Subscription | undefined
   cartItems: ShoppingCartItem[]=[];
@@ -26,7 +28,7 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
   
 
 
-  constructor(private cartService:ShoppingCartService){}
+  constructor(private cartService:ShoppingCartService,private router:Router){}
 
   async ngOnInit() {
     const cart$  =(await this.cartService.getCart());
@@ -44,5 +46,9 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+  }
+
+  checkout() {
+    this.router.navigate(['/check-out'])
   }
 }

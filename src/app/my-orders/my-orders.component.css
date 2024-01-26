@@ -1,0 +1,23 @@
+.my-order{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.table {
+   width: 100%;
+    text-align: left;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 8px;
+  }
